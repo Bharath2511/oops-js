@@ -1,25 +1,14 @@
-//understanding object oriented programming
-const userOne = {
-    email : 'john@gmail.com',
-    name : 'John',
-    login() {
-        console.log(this.email,'has logged in')
-    },
-    logout() {
-        console.log(this.email, 'has logged out')
+class User {
+    //constructor is a function that creates our object
+    constructor(email,name) {
+         this.email = email
+         this.name = name
     }
 }
-//accessing object properties
-userOne.login()
-userOne.logout()
-console.log(userOne.name)
-//changing props
-userOne['name'] = 'mario'
-userOne['email'] = 'mario.edu'
-//dynamic usage of objects
-var prop = 'name'
-console.log(userOne[prop])
-//we can also create new properties
-userOne.age = 22
-console.log(userOne)
 
+var userOne = new User('doe.edu','Joe')
+console.log(userOne)
+// the new keyword
+// creates an empty object
+//sets the value of "this" to be the new empty object
+//calls the constructor method
