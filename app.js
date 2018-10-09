@@ -20,7 +20,15 @@ class User {
     }
 }
 
+//inheritance
+class Admin extends User {
+   deleteUser() {
+
+   }
+}
+
 var userOne = new User('doe.edu','Joe')
+var userTwo = new User('snow.edu','John')
 console.log(userOne)
 //method chaining
 userOne.login().updateScore().updateScore().logout()
@@ -28,3 +36,4 @@ userOne.login().updateScore().updateScore().logout()
 // creates an empty object
 //sets the value of "this" to be the new empty object
 //calls the constructor method
+var users = [userOne,userTwo]
