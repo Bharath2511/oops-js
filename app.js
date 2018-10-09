@@ -22,18 +22,22 @@ class User {
 
 //inheritance
 class Admin extends User {
-   deleteUser() {
-
+   deleteUser(user) {
+       users = users.filter(u => {
+           return u.email != user.email
+       })
    }
 }
 
 var userOne = new User('doe.edu','Joe')
 var userTwo = new User('snow.edu','John')
-console.log(userOne)
+var admin = new Admin('mcgregor','conan')
+var users = [userOne,userTwo,admin]
+admin.deleteUser(userTwo)
+console.log(users)
 //method chaining
-userOne.login().updateScore().updateScore().logout()
+//userOne.login().updateScore().updateScore().logout()
 // the new keyword
 // creates an empty object
 //sets the value of "this" to be the new empty object
 //calls the constructor method
-var users = [userOne,userTwo]
