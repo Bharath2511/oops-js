@@ -1,26 +1,35 @@
-//constructor without classes
-function User(email,name) {
-   this.email = email
-   this.name = name
-   this.online = false
+function User(email, name){
+    this.email = email;
+    this.name = name;
+    this.online = false;
 }
 
-User.prototype.login = function() {
-    this.online =true
-    console.log(this.email, 'has logged in')
-}
+User.prototype.login = function(){
+    this.online = true;
+    console.log(this.email, 'has logged in');
+};
 
 User.prototype.logout = function(){
-    this.online = false
-    console.log(this.email, 'has logged out')
+    this.online = false;
+    console.log(this.email, 'has logged out');
+};
+
+function Admin(...args){
+    User.apply(this, args);
 }
 
-function Admin(...args) {
-  User.apply(this,args)
-}
+Admin.prototype = Object.create(User.prototype);
 
-var userOne = new User('doe.edu','Joe')
-var userTwo = new User('snow.edu','John')
-var admin = new Admin('santosh.edu','Santosh')
+Admin.prototype.deleteUser = function(u){
+    users = users.filter(user => {
+        return user.email != u.email;
+    });
+};
 
-console.log(admin)
+var userOne = new User('ryu@ninjas.com', 'Ryu');
+var userTwo = new User('yoshi@mariokorp.com', 'Yoshi');
+var admin = new Admin('shaun@ninjas.com', 'Shaun');
+
+var users = [userOne, userTwo, admin];
+admin.deleteUser(userTwo)
+console.log(users)
