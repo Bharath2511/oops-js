@@ -33,7 +33,8 @@ var userOne = new User('doe.edu','Joe')
 var userTwo = new User('snow.edu','John')
 var admin = new Admin('mcgregor','conan')
 var users = [userOne,userTwo,admin]
-admin.deleteUser(userTwo)
+//admin.deleteUser(userTwo)
+userOne.deleteUser(userTwo)
 console.log(users)
 //method chaining
 //userOne.login().updateScore().updateScore().logout()
