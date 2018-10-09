@@ -14,9 +14,13 @@ User.prototype.logout = function(){
     this.online = false
     console.log(this.email, 'has logged out')
 }
+
+function Admin(...args) {
+  User.apply(this,args)
+}
+
 var userOne = new User('doe.edu','Joe')
 var userTwo = new User('snow.edu','John')
+var admin = new Admin('santosh.edu','Santosh')
 
-console.log(userOne)
-userTwo.login()
-userOne.logout()
+console.log(admin)
